@@ -36,3 +36,13 @@
 .small.danger:hover {
     background: #fecaca;
 }
+/* succes-message style */
+.success-message {
+  margin: 12px 0;
+  padding: 10px;
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  border-radius: 6px;
+  font-size: 14px;
+}

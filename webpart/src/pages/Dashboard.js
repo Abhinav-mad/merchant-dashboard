@@ -11,6 +11,8 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [editProduct, setEditProduct] = useState(null);
+  const [successMessage, setSuccessMessage] = useState('');
+  
 
   const userEmail = localStorage.getItem('userEmail');
 
@@ -46,8 +48,13 @@ export default function Dashboard() {
   };
 
   const handleSaved = () => {
-    setShowForm(false);
-    fetchAll();
+  setShowForm(false);
+  setSuccessMessage('Product saved successfully!');
+  fetchAll();
+
+  // Clear message after 3 seconds
+  setTimeout(() => setSuccessMessage(''), 3000);
+
   };
 
   const logout = () => {
@@ -95,6 +102,7 @@ export default function Dashboard() {
             <h3>Products</h3>
             <button onClick={handleAdd} className="primary">Add Product</button>
           </div>
+  {successMessage && <div className="success-message">{successMessage}</div>}
 
           {loading ? <div>Loading...</div> :
             <ProductList products={products} onEdit={handleEdit} onDelete={handleDelete} />
