@@ -1,13 +1,18 @@
-const express = require('express');
-const cors = require('cors');
-
+const express = require("express");
+require("dotenv").config();
+const cors = require("cors");
 const app = express();
+const authRoutes = require("./controllers/authController");
 
-app.use(cors({origin: 'http://localhost:3000'}));
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 
-app.get('/', (req, res) => res.send({ ok: true }));
+app.get("/", (req, res) => res.send({ ok: true }));
 
-const PORT = process.env.PORT || 3000;
+app.use("/api/auth", authRoutes);
 
-app.listen(PORT, () => console.log(`Backend running on http://localhost:${PORT}`));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () =>
+  console.log(`Backend running on http://localhost:${PORT}`)
+);
