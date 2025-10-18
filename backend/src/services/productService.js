@@ -18,7 +18,7 @@ function createProduct({ userId, name, price, category, stock }) {
     stock: Number(stock),
   };
   products.push(product);
-  return p;
+  return products;
 }
 
 function updateProduct(userId, id, updates) {
@@ -50,15 +50,20 @@ function statsForUser(userId) {
     0
   );
   const byCategory = {};
+  const valueByCategory = {};
   userProducts.forEach((p) => {
     const cat = p.category || "Uncategorized";
     byCategory[cat] = (byCategory[cat] || 0) + 1;
+    const productValue = Number(p.price) * Number(p.stock || 0);
+    valueByCategory[cat] = (valueByCategory[cat] || 0) + productValue;
   });
+
   return {
     totalProducts,
     totalValue,
     categoriesCount: Object.keys(byCategory).length,
     byCategory,
+    valueByCategory,
   };
 }
 

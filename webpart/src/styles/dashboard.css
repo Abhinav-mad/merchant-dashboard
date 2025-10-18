@@ -1,0 +1,38 @@
+.overview .right {
+    background: #f9fafb;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Panel Titles */
+.panel h3 {
+    margin: 0 0 8px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Loading State */
+.loading {
+    padding: 16px;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+/* Buttons (hover/active states) */
+.primary:hover {
+    background: #2563eb;
+    color: #fff;
+}
+
+.small:hover {
+    opacity: 0.85;
+}
+
+.small.danger:hover {
+    background: #fecaca;
+}

@@ -1,7 +1,48 @@
-.login-page { min-height:100vh; display:flex; align-items:center; justify-content:center; background:var(--bg); }
-.login-card { width:360px; background:white; padding:28px; border-radius:10px; box-shadow: 0 4px 20px rgba(2,6,23,0.06); text-align:center; }
-.login-card h2 { margin:0 0 16px; }
-.login-card form { display:flex; flex-direction:column; gap:8px; }
-.login-card input { padding:10px 12px; border-radius:8px; border:1px solid #e6e9ee; }
-.login-card button { margin-top:8px; padding:10px; border-radius:8px; background:var(--primary); color:white; border:none; cursor:pointer; }
-.error { color:#b91c1c; margin-top:8px; font-size:13px; }
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+}
+
+.login-card {
+    width: 360px;
+    background: white;
+    padding: 28px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(2, 6, 23, 0.06);
+    text-align: center;
+}
+
+.login-card h2 {
+    margin: 0 0 16px;
+}
+
+.login-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.login-card input {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #e6e9ee;
+}
+
+.login-card button {
+    margin-top: 8px;
+    padding: 10px;
+    border-radius: 8px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.error {
+    color: #b91c1c;
+    margin-top: 8px;
+    font-size: 13px;
+}
