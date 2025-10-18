@@ -4,10 +4,10 @@ import api from '../api';
 import '../styles/login.css';
 
 export default function Login() {
-  const [email, setEmail] = useState('admin@test.com');
-  const [password, setPassword] = useState('password123');
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState('');   
   const navigate = useNavigate();
 
   const submit = async (e) => {
