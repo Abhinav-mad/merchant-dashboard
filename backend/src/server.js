@@ -3,6 +3,7 @@ require("dotenv").config();
 const cors = require("cors");
 const app = express();
 const authRoutes = require("./controllers/authController");
+const productRoutes = require("./controllers/productController");
 
 app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
@@ -10,6 +11,7 @@ app.use(express.json());
 app.get("/", (req, res) => res.send({ ok: true }));
 
 app.use("/api/auth", authRoutes);
+app.use('/api', productRoutes);
 
 const PORT = process.env.PORT || 5000;
 
