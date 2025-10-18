@@ -1,17 +1,16 @@
 const express = require('express');
 const router = express.Router();
-
 const { createProduct, updateProduct, deleteProduct, getProductsByUser, statsForUser } = require('../services/productService');
+const { authenticateToken } = require('../middleware/authMiddleware');
 
 
-router.get('/products', (req, res) => {
+router.get('/products', authenticateToken, (req, res) => {
     const userId = req.user.userId;;
     const myProducts = getProductsByUser(userId);
     return res.status(200).json({ success: true, data: myProducts });
 });
 
-
-router.post('/products', (req, res) => {
+router.post('/products', authenticateToken, (req, res) => {
     const userId = req.user.userId;
     const { name, price, category, stock } = req.body || {};
     const newProduct = createProduct({ userId, name, price, category, stock });
@@ -19,7 +18,7 @@ router.post('/products', (req, res) => {
 });
 
 
-router.put('/products/:id', (req, res) => {
+router.put('/products/:id', authenticateToken, (req, res) => {
     const userId = req.user.userId;
     const { name, price, category, stock } = req.body || {};
 
@@ -34,7 +33,7 @@ router.put('/products/:id', (req, res) => {
     }
 });
 
-router.delete('/products/:id', (req, res) => {
+router.delete('/products/:id', authenticateToken, (req, res) => {
     const userId = req.user.userId;
 
     try {
@@ -48,7 +47,7 @@ router.delete('/products/:id', (req, res) => {
     }
 });
 
-router.get('/stats', (req, res) => {
+router.get('/stats', authenticateToken, (req, res) => {
     const userId = req.user.userId;
     const stats = statsForUser(userId);
     return res.status(200).json({ success: true, data: stats });
